@@ -34,19 +34,22 @@
               >Forum</mdb-nav-item
             >
           </mdb-navbar-nav>
-          <mdb-btn-group style="width: 20em">
-            <mdb-btn
-              color="transparent"
-              class="font-weight-bold"
-              style="box-shadow: none!important"
-              ><router-link to="/login">Login</router-link></mdb-btn
-            >
-            <mdb-btn
-              color="black"
-              class="font-weight-bold"
-              style="border-radius: 0.5em;"
-              id="navbtn"
-              ><router-link to="/signup">Sign Up</router-link></mdb-btn
+          <mdb-btn-group style="width: 20em"
+            ><router-link to="/login">
+              <mdb-btn
+                color="transparent"
+                class="font-weight-bold"
+                style="box-shadow: none!important"
+                >Login</mdb-btn
+              ></router-link
+            ><router-link to="/signup">
+              <mdb-btn
+                color="black"
+                class="font-weight-bold white-text"
+                style="border-radius: 0.5em;"
+                id="navbtn"
+                >Sign Up</mdb-btn
+              ></router-link
             >
           </mdb-btn-group>
         </mdb-navbar-toggler>
@@ -193,20 +196,17 @@
               </mdb-col>
             </mdb-row>
             <mdb-row class="mt-3">
-              <mdb-col lg="4">
+              <mdb-col lg="3">
                 <h6 class="font-weight-bold mr-1">Go to Top</h6>
+              </mdb-col>
+              <mdb-col lg="1">
                 <go-top-button
                   :animate="true"
                   :speed="50"
                   :acceleration="2"
                   :scrollDistance="300"
-                  :classNames="'custom-class'"
                   :styles="{
-                    'border-radius': '20px 20px 20px 20px',
-                    right: '5px',
-                    color: 'black',
-                    border: '5px solid',
-                    'line-height': '20px',
+                    color: 'white',
                   }"
                 >
                   <i class="fa fa-arrow-up"></i>
@@ -241,7 +241,6 @@ import {
   mdbCol,
 } from "mdbvue";
 import GoTopButton from "vue-go-top-button";
-import "vue-go-top-button/dist/lib/vue-go-top-button.min.css";
 export default {
   name: "IndexPage",
   components: {
@@ -308,5 +307,4 @@ export default {
 #navbtn a.router-link-exact-active {
   color: #fff;
 }
-
 </style>

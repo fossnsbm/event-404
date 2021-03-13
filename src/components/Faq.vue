@@ -1,10 +1,10 @@
 <template>
   <v-expansion-panels focusable>
     <v-expansion-panel v-for="pane in panes" :key="pane">
-      <v-expansion-panel-header class="font-weight-bold">{{
+      <v-expansion-panel-header class="h1 font-weight-bold">{{
         pane.title
       }}</v-expansion-panel-header>
-      <v-expansion-panel-content class="font-weight-normal p-3">
+      <v-expansion-panel-content class="h5 font-weight-normal p-3">
         {{ pane.content }}
       </v-expansion-panel-content>
     </v-expansion-panel>

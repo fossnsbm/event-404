@@ -31,12 +31,12 @@
         ></mdb-row
       >
       <mdb-row class="mx-5 mt-5">
-        <mdb-col md="4"
+        <mdb-col md="3"
           ><p class="h3 light-green-text font-weight-bold">
             Frequently Asked Questions
           </p></mdb-col
         >
-        <mdb-col md="8"><FaqAccordion></FaqAccordion></mdb-col
+        <mdb-col md="9"><FaqAccordion></FaqAccordion></mdb-col
       ></mdb-row>
     </mdb-container>
   </div>
