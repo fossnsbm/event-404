@@ -4,6 +4,7 @@ import Home from "../views/Home.vue";
 import NotFoundPage from "../views/NotFound.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
+import Events from "../views/Events.vue";
 
 Vue.use(VueRouter);
 
@@ -35,6 +36,11 @@ const routes = [
     path: "/blog/:id",
     name: "ArticlePage",
     component: ArticlePage,
+  },
+  {
+    path: "/events",
+    name: "Events",
+    component: Events,
   },
 ];
 
