@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import NotFoundPage from "../views/NotFound.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
 
@@ -20,6 +21,10 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
+  },
+  {
+    path: "*",
+    component: NotFoundPage,
   },
   {
     path: "/blog",
