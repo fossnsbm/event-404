@@ -5,12 +5,12 @@ import Home from "../views/Home.vue";
 import NotFoundPage from "../views/NotFound.vue";
 import Login from "../views/Login.vue";
 import SignUp from "../views/SignUp.vue";
-// import Profile from "../views/Profile.vue";
+import Profile from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
-// import EventPage from "../views/Event.vue";
-// import { auth } from '../firebase'
+import EventPage from "../views/Event.vue";
+// import { auth } from '../firebase';
 
 Vue.use(VueRouter);
 
@@ -53,35 +53,49 @@ const routes = [
     name: "SignUp",
     component: SignUp,
   },
-  // {
-  //   path: "/profile",
-  //   name: "Profile",
-  //   component: Profile,
-  //   meta: {
-  //     requiresAuth: true,
-  //   },
-  // },
+  {
+    path: "/profile",
+    name: "Profile",
+    component: Profile,
+    meta: {
+      requiresAuth: true,
+    },
+  },
   {
     path: "/events",
     name: "Events",
     component: Events,
   },
-  // {
-  //   path: "/events/e",
-  //   name: "EventPage",
-  //   component: EventPage,
-  // },
+  {
+    path: "/events/e",
+    name: "EventPage",
+    component: EventPage,
+  },
 ];
 
 // router.beforeEach((to, from, next) => {
 //   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)
 
-//   if (requiresAuth && !auth.currentUser) {
+//   if (requiresAuth && !auth.user) {
 //     next('/login')
 //   } else {
 //     next()
 //   }
 // })
+
+// router.beforeEach((to, from, next) => {
+//   const currentUser = firebase.auth().currentUser;
+//   const requiresAuth = to.matched.some(record => record.meta.requiresAuth);
+
+//   if (requiresAuth && !currentUser) {
+//     const loginpath = window.location.pathname;   
+//     next({ name: 'login', query: { from: loginpath } });
+//   } else if (!requiresAuth && currentUser) {
+//     next("defaultView");
+//   } else {
+//     next();
+//   }
+// });
 
 const router = new VueRouter({
   scrollBehavior() {
