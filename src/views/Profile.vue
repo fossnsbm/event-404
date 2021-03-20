@@ -12,12 +12,12 @@
                 <img
                   v-if="this.photoUrl"
                   :src="this.photoUrl"
-                  class="rounded-circle img-fluid"
+                  class="rounded-circle img-fluid w-100"
                 />
                 <img
                   v-else
                   src="http://cdn.onlinewebfonts.com/svg/img_258083.png"
-                  class="rounded-circle img-fluid"
+                  class="rounded-circle img-fluid w-100"
                 />
               </mdb-avatar>
             </mdb-col>
@@ -86,22 +86,25 @@
             Attended Events
           </p>
         </mdb-col>
-        <mdb-col lg="6" class="mx-5">
-          <a class="h6 blue-text font-weight-bold">
-            See All
-          </a>
-        </mdb-col>
       </mdb-row>
     </mdb-container>
   </div>
 </template>
 
 <script>
-import { mdbJumbotron, mdbRow, mdbCol, mdbBtn, mdbIcon } from "mdbvue";
+import {
+  mdbContainer,
+  mdbJumbotron,
+  mdbRow,
+  mdbCol,
+  mdbBtn,
+  mdbIcon,
+} from "mdbvue";
 export default {
-  name: "JumbotronPage",
+  name: "ProfilePage",
   props: ["user"],
   components: {
+    mdbContainer,
     mdbJumbotron,
     mdbRow,
     mdbCol,
@@ -141,7 +144,7 @@ export default {
       this.displayName = this.user.displayName;
       this.email = this.user.email;
       this.phoneNumber = this.user.phoneNumber;
-      this.photoUrl = this.user.photoUrl;
+      this.photoUrl = this.user.photoURL;
     },
   },
 };
