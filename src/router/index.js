@@ -9,10 +9,12 @@ import ProfilePage from "../views/Profile.vue";
 import Events from "../views/Events.vue";
 import ArticlePage from "../views/Article.vue";
 import Blog from "../views/Blog.vue";
+import Forum from "../views/Forum.vue";
 import EventPage from "../views/Event.vue";
 import EditProfilePage from "../views/EditProfile.vue";
 import AllEventsPage from "../views/AllEvents.vue";
-// import { auth } from '../firebase';
+// import AdminPage from "../views/Admin.vue";
+// import firebase from '../firebase';
 
 Vue.use(VueRouter);
 
@@ -44,6 +46,11 @@ const routes = [
     path: "/blog/:id",
     name: "ArticlePage",
     component: ArticlePage,
+  },
+  {
+    path: "/forum",
+    name: "Forum",
+    component: Forum,
   },
   {
     path: "/login",
@@ -86,7 +93,25 @@ const routes = [
     name: "AllEventsPage",
     component: AllEventsPage,
   },
+  {
+    path: "/admin/",
+    name: "AdminPage",
+    // component: AdminPage,
+    // component: () => {
+    //   if (/@fossnsbm.org\s*$/.test(this.$user)) {
+    //     return AdminPage;
+    //   } else {
+    //     return Login;
+    //   }
+    // },
+  },
 ];
+
+// if (/@fossnsbm.org\s*$/.test(this.store)) {
+//   user = true;
+// } else {
+//   user = false;
+// }
 
 // router.beforeEach((to, from, next) => {
 //   const requiresAuth = to.matched.some(x => x.meta.requiresAuth)

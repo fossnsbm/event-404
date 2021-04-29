@@ -1,4 +1,4 @@
-# event-404
+# event-management-platform
 
 ## Project setup
 ```

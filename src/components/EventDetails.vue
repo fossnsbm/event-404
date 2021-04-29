@@ -50,7 +50,7 @@
                 <mdb-col lg="8"
                   ><mdb-row
                     ><p class="h5 light-green-text font-weight-bold pt-lg-3">
-                      Host
+                      Organizer
                     </p> </mdb-row
                   ><mdb-row>
                     <p class="h5 font-weight-bold">
@@ -63,9 +63,9 @@
           </mdb-row>
         </mdb-col>
       </mdb-row>
-      <mdb-row class="mx-5 mb-5">
+      <mdb-row class="mx-4 mb-5">
         <mdb-jumbotron
-          class="mb-0 text-center hoverable p-1 mx-5 w-100"
+          class="mb-0 text-center hoverable p-1 w-100"
           style="border-radius: 0.5em;"
         >
           <mdb-row>
@@ -73,7 +73,7 @@
               <mdb-view
                 :src="event.thumbnailUrl"
                 alt="Sample image for first version of blog listing"
-                style="border-radius: 0.5em; object-fit: cover; width: 100%; height: 400px;"
+                style="border-radius: 0.5em; object-fit: cover; width: 100%; height: 100%;"
                 class="img-fluid"
               >
                 <a><mdb-mask waves overlay="white-slight"/></a>
@@ -84,7 +84,8 @@
                 {{ event.name }}
               </h6>
               <h4 class="h4 mb-2">
-                Date: <strong>{{ moment(event.datetime).format("LLLL") }}</strong>
+                Date:
+                <strong>{{ moment(event.datetime).format("LLLL") }}</strong>
               </h4>
               <h4 class="h4 mb-4">
                 Venue: <strong>{{ event.venue }}</strong>
@@ -98,8 +99,12 @@
                   ><strong>{{ event.organizer }}</strong></a
                 >
               </p>
-
-              <mdb-btn color="light-green mr-4" style="border-radius:1em;"
+              <mdb-btn
+                id="rsvpBtn"
+                type="submit"
+                color="light-green mr-4"
+                style="border-radius:1em;"
+                @click.native="modal = true"
                 >RSVP</mdb-btn
               >
 
@@ -112,7 +117,7 @@
         </mdb-jumbotron>
       </mdb-row>
       <mdb-container fluid class="mx-lg-5">
-        <mdb-row class="mx-5">
+        <mdb-row>
           <mdb-col lg="8">
             <p class="h3 font-weight-bold">
               Details
@@ -125,6 +130,31 @@
       </mdb-container>
       <hr class="mx-5" />
     </mdb-container>
+    <div>
+      <mdb-modal
+        size="lg"
+        :show="modal"
+        @close="modal = false"
+        centered
+        scrollable
+      >
+        <mdb-modal-header>
+          <mdb-modal-title
+            >RSVP for {{ event.name }}</mdb-modal-title
+          ></mdb-modal-header
+        >
+        <mdb-modal-body
+          ><iframe
+            id="typeform-full"
+            width="100%"
+            height="500px"
+            frameborder="0"
+            allow="camera; microphone; autoplay; encrypted-media;"
+            :src="event.rsvpUrl"
+          ></iframe
+        ></mdb-modal-body>
+      </mdb-modal>
+    </div>
   </div>
 </template>
 
@@ -139,7 +169,12 @@ import {
   mdbMask,
   mdbView,
   mdbIcon,
+  mdbModal,
+  mdbModalHeader,
+  mdbModalTitle,
+  mdbModalBody,
 } from "mdbvue";
+// import * as typeformEmbed from "@typeform/embed";
 export default {
   name: "EventDetails",
   props: ["event"],
@@ -153,6 +188,32 @@ export default {
     mdbView,
     mdbMask,
     mdbIcon,
+    mdbModal,
+    mdbModalHeader,
+    mdbModalTitle,
+    mdbModalBody,
   },
+  data() {
+    return {
+      modal: false,
+    };
+  },
+  // mounted() {
+  //   const embedElement = this.$refs.embeddedTypeform;
+
+  //   typeformEmbed.makeWidget(
+  //     embedElement,
+  //     "https://developerplatform.typeform.com/to/Xc7NMh",
+  //     {
+  //       hideHeaders: true,
+  //       hideFooter: true,
+  //       opacity: 75,
+  //       buttonText: "Take the survey!",
+  //       onSubmit: function() {
+  //         console.log("Typeform successfully submitted");
+  //       },
+  //     }
+  //   );
+  // },
 };
 </script>

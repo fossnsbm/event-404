@@ -24,14 +24,14 @@
         ><mdb-col md="1"
           ><router-link to="/allevents"
             ><p class="h5 blue-text font-weight-bold">
-              See All
+              <!-- See All -->
             </p></router-link
           ></mdb-col
         ></mdb-row
       ><mdb-container fluid
-        ><mdb-row class="mt-4 d-flex justify-content-center"
+        ><mdb-row class="mt-4 mx-2 d-flex justify-content-start"
           ><EventCard
-            v-for="event in events.slice(0, 3)"
+            v-for="event in events.slice(0,1)"
             :key="event.id"
             :event="event"
           ></EventCard></mdb-row
@@ -49,9 +49,9 @@
           ></mdb-col
         ></mdb-row
       ><mdb-container fluid
-        ><mdb-row class="mt-4 d-flex justify-content-center"
+        ><mdb-row class="mt-4 mx-2 d-flex justify-content-start"
           ><EventCard
-            v-for="event in events.slice(3, 6)"
+            v-for="event in events.slice(2,5)"
             :key="event.id"
             :event="event"
           ></EventCard></mdb-row
@@ -71,6 +71,7 @@
 <script>
 import { mdbContainer, mdbRow, mdbCol } from "mdbvue";
 import axios from "axios";
+// import moment from "moment";
 import EventCard from "../components/EventCard.vue";
 import FaqAccordion from "../components/Faq.vue";
 export default {
@@ -85,6 +86,8 @@ export default {
   data() {
     return {
       events: [],
+      // upcomingEvents: [],
+      // pastEvents: [],
     };
   },
   created() {
@@ -98,7 +101,16 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+      // this.getUpcomingEvents();
     },
+    // getUpcomingEvents: function() {
+    //   this.events.forEach(function(event) {
+    //     if (moment.isAfter(event.datetime)) {
+    //       this.upcomingEvents.push(event);
+    //     }
+    //   });
+    //   console.log(this.upcomingEvents);
+    // },
   },
 };
 </script>
