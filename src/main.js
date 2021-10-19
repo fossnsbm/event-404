@@ -12,6 +12,7 @@ import moment from "moment";
 Vue.prototype.$axios = axios;
 Vue.prototype.moment = moment;
 Vue.config.productionTip = false;
+require('dotenv').config()
 
 // new Vue({
 //   router,
