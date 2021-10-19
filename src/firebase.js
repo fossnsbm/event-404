@@ -4,13 +4,13 @@ import "firebase/firestore";
 
 // firebase init
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
+  apiKey: process.env.VUE_APP_API_KEY,
   authDomain: "foss-rsvp.firebaseapp.com",
   projectId: "foss-rsvp",
   storageBucket: "foss-rsvp.appspot.com",
-  messagingSenderId: process.env.SENDER_ID,
-  appId: process.env.APP_ID,
-  measurementId: process.env.MEASUREMENT_ID,
+  messagingSenderId: process.env.VUE_APP_SENDER_ID,
+  appId: process.env.VUE_APP_APP_ID,
+  measurementId: process.env.VUE_APP_MEASUREMENT_ID,
 };
 firebase.initializeApp(firebaseConfig);
 
